@@ -92,7 +92,7 @@ defmodule LoggerLokiBackend do
     max_buffer = Keyword.get(config, :max_buffer, 32)
     loki_labels = Keyword.get(config, :loki_labels, %{application: "logger_loki_backend"})
     loki_host = Keyword.get(config, :loki_host, "http://localhost:3100")
-    loki_path = Keyword.get(config, :loki_path, "/api/v1/push")
+    loki_path = Keyword.get(config, :loki_path, "/loki/api/v1/push")
     loki_scope_org_id = Keyword.get(config, :loki_scope_org_id, "fake")
 
     %{

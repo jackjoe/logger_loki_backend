@@ -10,4 +10,5 @@ config :logger, :logger_loki_backend,
   max_buffer: 300,
   loki_labels: %{application: "logger_loki_backend", elixir_node: node()},
   loki_host: "http://localhost:3100",
+  loki_path: "/loki/api/v1/push",
   loki_scope_org_id: "acme_inc"
