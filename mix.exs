@@ -3,7 +3,7 @@ defmodule LoggerLokiBackend.MixProject do
 
   def project do
     [
-      app: :loki_logger,
+      app: :logger_loki_backend,
       version: "0.0.1",
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,

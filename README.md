@@ -1,38 +1,16 @@
 # LoggerLokiBackend
 
 A shameless plug to the stale LokiLogger, with PR's pulled in and personal tweaks.
-
-# LokiLogger
-
-LokiLogger is an Elixir logger backend providing support for Logging to [Grafana Loki](https://github.com/grafana/loki)
-
-[![Hex.pm Version](http://img.shields.io/hexpm/v/loki_logger.svg?style=flat)](https://hex.pm/packages/loki_logger)
-
-## Known issues
-
-- "works-on-my-machine" level of quality. Love to get your feedback in the repo's Github issues
-
-## Features (and TODO)
-
-- [x] Elixir Logger formatting
-- [x] Elixir Logger metadata
-  - [x] Loki Scope-Org-Id header for multi-tenancy
-- [x] Timezone aware
-- [x] Snappy compressed proto format in the HTTP Body
-- [ ] Async http call to backend.
-- [ ] Proper unit tests.
-- [ ] HTTP post retry strategy on temporary loki backend failure or network hiccups.
-- [ ] Authentication with basic auth and/or Oauth2 reverse proxy.
-- [ ] CI build integration (e.g. TravisCI)
+See the [Legacy](LEGACY.md) file for more info.
 
 ## Installation
 
-The package can be installed by adding `loki_logger` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `logger_loki_backend` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:loki_logger, "~> 0.3.0"}
+    {:logger_loki_backend, "~> 0.3.0"}
   ]
 end
 ```
