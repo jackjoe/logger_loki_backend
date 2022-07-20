@@ -19,9 +19,10 @@ end
 
 ### Elixir Project
 
-Loki Logger's behavior is controlled using the application configuration environment:
+The behavior is controlled using the application configuration environment:
 
 - **loki_host** : the hostname of the syslog server e.g. http://localhost:3100
+- **loki_path** : the path to push to e.g. /api/v1/push
 - **loki_labels** : the Loki log labels used to select the log stream in e.g. Grafana
 - **loki_scope_org_id**: optional tenant ID for multitenancy. Currently not (yet?) supported in Grafana when enforced with `auth_enabled: true` in Loki config
 - **level**: logging threshold. Messages "above" this threshold will be discarded. The supported levels, ordered by precedence are :debug, :info, :warn, :error.
@@ -36,14 +37,14 @@ level debug, with `application` label `loki_logger_library`.
 use Mix.Config
 
 config :logger,
-       backends: [LokiLogger]
+       backends: [LoggerLokiBackend]
 
-config :logger, :loki_logger,
+config :logger, :logger_loki_backend,
        level: :debug,
        format: "$metadata level=$level $levelpad$message",
        metadata: :all,
        max_buffer: 300,
-       loki_labels: %{application: "loki_logger_library", elixir_node: node()},
+       loki_labels: %{application: "logger_loki_backend", elixir_node: node()},
        loki_host: "http://localhost:3100"
 ```
 
@@ -54,11 +55,3 @@ only needed for development
 ```shell script
 protoc --proto_path=./lib/proto --elixir_out=./lib lib/proto/loki.proto
 ```
-
-## License
-
-Loki Logger is copyright (c) 2019 Ward Bekker
-
-The source code is released under the Apache v2.0 License.
-
-Check [LICENSE](LICENSE) for more information.
